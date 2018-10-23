@@ -1,0 +1,5 @@
+com/example/controller/PrdController.class
+com/example/DemoOnlinstoreKaburtApplication.class
+com/example/repo/PrdRepository.class
+com/example/config/CloudDataSourceConfig.class
+com/example/model/Product.class
