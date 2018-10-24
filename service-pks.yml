@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-deployment
+  labels:
+    app: service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: service
+    spec:
+      containers:
+      - name: service
+        image: tkaburagi/service-pks
+        ports:
+        - containerPort: 80
+        env:
+          - name: MY_POD_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
+          - name: MY_POD_UID
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
